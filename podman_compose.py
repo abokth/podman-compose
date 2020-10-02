@@ -469,6 +469,7 @@ def mount_desc_to_volume_args(compose, mount_desc, srv_name, cnt_name):
     read_only = mount_desc.get("read_only", None)
     if read_only is not None:
         opts.append('ro' if read_only else 'rw')
+    opts.append('z')
     args = f'{source}:{target}'
     if opts: args += ':' + ','.join(opts)
     return args
